@@ -2,6 +2,11 @@
 
 AI Response Parser is a Python script that parses a markdown file, extracts code blocks, and creates output files based on the specified rules and requirements.
 
+This app was created with the help of Claude AI: https://claude.ai/chat/0131967e-927a-4f3e-9416-de8c6a3ede4d
+
+The prompts and responses can be found here: [Claude Prompts and Responses](./docs/prompts.md)
+
+
 ## Features
 
 - Logs all actions taking place to a file and to the terminal
