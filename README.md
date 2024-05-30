@@ -28,6 +28,48 @@ python project_parser.py
 6. If you choose a new run or if no previous runs are available, the script will prompt you for the Input Path and Output Path.
 7. The script will parse the markdown file, create output files based on the code blocks, and generate an `index.md` file in the Output Path.
 
+## For convenient usage
+To create a bash script that allows you to run the `parsemd.py` script from anywhere on Rocky Linux 9.2, follow these steps:
+
+1. Open a terminal and navigate to the `/usr/local/bin` directory:
+```sh
+cd /usr/local/bin
+```
+
+2. Create a new file named `parsemd` using a text editor (e.g., nano or vim):
+```sh
+sudo nano parsemd
+```
+
+3. Add the following content to the `parsemd` file:
+```bash
+#!/bin/bash
+python /var/www/tools/AI\ Response\ Parser/parsemd.py "$@"
+```
+
+4. Save the file and exit the text editor. If you're using nano, press `Ctrl+X`, then `Y`, and finally `Enter` to save and exit.
+
+5. Make the `parsemd` script executable:
+```sh
+sudo chmod +x parsemd
+```
+
+6. Verify that the script is accessible from anywhere by running:
+```sh
+parsemd
+```
+
+The `parsemd.py` script should now execute from its own folder.
+
+Now, whenever you type `parsemd` in the terminal from any directory on Rocky Linux 9.2, it will run the `parsemd.py` script located at `/var/www/tools/AI Response Parser/parsemd.py`.
+
+Note: Make sure that the `/usr/local/bin` directory is included in your system's `PATH` variable. You can check this by running `echo $PATH`. If `/usr/local/bin` is not listed, you can add it by modifying your shell's configuration file (e.g., `~/.bashrc` or `~/.bash_profile`) and adding the following line:
+
+```sh
+export PATH="/usr/local/bin:$PATH"
+```
+After adding the line, save the file and restart your terminal or run `source ~/.bashrc` (or the appropriate configuration file) for the changes to take effect.
+
 ## Questions
 
 ### Will the output path be created if it does not exist?
